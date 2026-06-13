@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import type { Movie } from '../types/Type';
 
 const MoviesDetails = () => {
@@ -66,7 +66,10 @@ const MoviesDetails = () => {
 
   return (
 
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black/70 text-white">
+      <Link to="/" className="inline-block mt-4 ml-4 text-blue-500 hover:underline">
+        ← Back to Home
+      </Link>
         
         {/* Background */}
         <div
@@ -92,7 +95,7 @@ const MoviesDetails = () => {
             <h1 className="text-3xl font-bold">{movie.title}</h1>
 
             <p className="text-gray-300 mt-2">
-                ⭐ {movie.rating} / 10
+                ⭐ {movie.rating?.toFixed(1)} / 10
             </p>
 
             <p className="text-gray-400">

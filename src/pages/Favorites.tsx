@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Movie } from "../types/Type";
 import { getFavorites } from "../utils/favorites";
+import { Link } from "react-router";
 
 
 function Favorites() {
@@ -20,7 +21,10 @@ function Favorites() {
   }, [movies]);
 
   return (
-    <div className="min-h-screen bg-slate-100 p-8">
+    <div className="min-h-screen bg-slate-100 p-8 ">
+      <Link to="/" className="text-blue-600 font-bold mb-4 inline-block">
+        ← Back to Home
+      </Link>
       <h1 className="text-3xl font-bold text-center mb-6">
         ❤️ My Favorites
       </h1>
