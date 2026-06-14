@@ -35,6 +35,7 @@ Saved movies with localStorage persistence
 🎬 TMDb API
 💾 LocalStorage
 📂 Project Structure
+
 src/
  ├── components/
  │    ├── MovieCard.tsx
@@ -54,6 +55,7 @@ src/
  │
  ├── App.tsx
  ├── main.tsx
+ 
 🔑 API Setup
 
 This project uses the TMDb API.
