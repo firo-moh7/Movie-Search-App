@@ -34,27 +34,6 @@ Saved movies with localStorage persistence
 🌐 React Router DOM
 🎬 TMDb API
 💾 LocalStorage
-📂 Project Structure
-
-src/
- ├── components/
- │    ├── MovieCard.tsx
- │    ├── SearchBar.tsx
- │    ├── SkeletonCard.tsx
- │
- ├── pages/
- │    ├── Home.tsx
- │    ├── MovieDetails.tsx
- │    ├── Favorites.tsx
- │
- ├── utils/
- │    ├── favorites.ts
- │
- ├── types/
- │    ├── Type.ts
- │
- ├── App.tsx
- ├── main.tsx
  
 🔑 API Setup
 
