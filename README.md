@@ -8,8 +8,6 @@ A modern React + TypeScript web application for searching movies, viewing detail
 
 📸 Preview
 
-Add screenshots here after deployment
-
 Home Page:
 Search + Popular Movies
 
