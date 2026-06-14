@@ -43,37 +43,34 @@ function Favorites() {
         </p>
       </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {movies.map((movie) => (
             <div
-            key={movie.id}
-            className="bg-white rounded-lg shadow-md p-4"
+              key={movie.id}
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
             >
-              {/* Reuse MovieCard but without the favorite button */}
-               <div
-            key={movie.id}
-            className="bg-white rounded-lg shadow-md p-4"
-          >
-            <img
-              src={movie.poster}
-              alt={movie.title}
-              className="w-full h-80 object-cover rounded"
-            />
+              <img
+                src={movie.poster}
+                alt={movie.title}
+                className="w-full h-80 object-cover"
+              />
 
-            <h2 className="font-bold mt-2">
-              {movie.title}
-            </h2>
+              <div className="p-4">
+                <h2 className="text-lg font-bold line-clamp-1">
+                  {movie.title}
+                </h2>
 
-            <p>{movie.year}</p>
+                <p className="text-gray-500 mt-1">
+                  {movie.year}
+                </p>
 
-            {/* Put the Remove button here */}
-            <button
-              onClick={() => handleRemove(movie.id)}
-              className="mt-2 bg-red-500 text-white px-3 py-1 rounded"
-            >
-              Remove
-            </button>
-          </div>
+                <button
+                  onClick={() => handleRemove(movie.id)}
+                  className="mt-4 w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg transition hover:scale-105 transform duration-300 cursor-pointer"
+                >
+                  Remove ❤️
+                </button>
+              </div>
             </div>
           ))}
         </div>

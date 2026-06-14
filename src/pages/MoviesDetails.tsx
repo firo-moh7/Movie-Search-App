@@ -72,8 +72,7 @@ const MoviesDetails = () => {
       </Link>
         
         {/* Background */}
-        <div
-        className="h-[60vh] bg-cover bg-center relative"
+        <div className="h-[40vh] md:h-[50vh] lg:h-[60vh] bg-cover bg-center relative"
         style={{
             backgroundImage: `url(${movie.backdrop})`,
         }}
@@ -82,41 +81,44 @@ const MoviesDetails = () => {
         </div>
 
         {/* Content */}
-        <div className="max-w-5xl mx-auto p-6 -mt-32 relative z-10">
+        <div className="max-w-5xl mx-auto p-6 -mt-20 md:-mt-24 lg:-mt-16 bg-black/80 rounded-lg shadow-lg relative z-10">
+          <div className="flex flex-col md:flex-row gap-6">
 
-        <div className="flex flex-col md:flex-row gap-6">
-            
             <img
-            src={movie.poster}
-            className="w-64 rounded-xl shadow-lg"
+              src={movie.poster}
+              alt={movie.title}
+              className="w-full max-w-xs mx-auto md:mx-0 rounded-xl shadow-lg"
             />
 
-            <div>
-            <h1 className="text-3xl font-bold">{movie.title}</h1>
+            <div className="text-white flex-1">
+              <h1 className="text-2xl md:text-3xl font-bold">
+                {movie.title}
+              </h1>
 
-            <p className="text-gray-300 mt-2">
+              <p className="text-yellow-400 mt-2">
                 ⭐ {movie.rating?.toFixed(1)} / 10
-            </p>
+              </p>
 
-            <p className="text-gray-400">
+              <p className="text-gray-400">
                 ⏱ {movie.runtime} min
-            </p>
+              </p>
 
-            <p className="mt-4 text-gray-300">
+              <p className="mt-4 text-gray-300 leading-relaxed">
                 {movie.overview}
-            </p>
+              </p>
 
-            <div className="flex gap-2 mt-4 flex-wrap">
-                {movie.genres?.map((g: string) => (
-                <span
+              <div className="flex flex-wrap gap-2 mt-4">
+                {movie.genres?.map((g) => (
+                  <span
                     key={g}
                     className="bg-blue-600 px-3 py-1 rounded-full text-sm"
-                >
+                  >
                     {g}
-                </span>
+                  </span>
                 ))}
-             </div>
+              </div>
             </div>
+
           </div>
         </div>
     </div>

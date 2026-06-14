@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import MovieCard from "../componenets/MovieCard";
-import SearchBar from "../componenets/SearchBar";
+import MovieCard from "../components/MovieCard";
+import SearchBar from "../components/SearchBar";
 import type { Movie } from "../types/Type";
-import SkeletonCard from "../componenets/SkeletonCard";
+import SkeletonCard from "../components/SkeletonCard";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -87,7 +87,7 @@ function Home() {
       if (searchTerm.trim()) {
         searchMovies(searchTerm);
       } 
-    }, 500);
+    }, 5000);
 
     return () => clearTimeout(delayDebounceFn);
   }, [searchTerm]);
