@@ -54,7 +54,7 @@ TypeScript with API data
 LocalStorage state persistence
 UI/UX improvements (skeleton loaders, debounce)
 📦 Installation
-git clone https://github.com/your-username/movie-search-app.git
+git clone https://github.com/firo-moh7/movie-search-app.git
 cd movie-search-app
 npm install
 npm run dev
