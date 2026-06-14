@@ -1,73 +1,89 @@
-# React + TypeScript + Vite
+🎬 Movie Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React + TypeScript web application for searching movies, viewing details, and saving favorites using the TMDb API.
 
-Currently, two official plugins are available:
+🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+👉(https://movie-search-app-lemon-delta.vercel.app/)
 
-## React Compiler
+📸 Preview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Add screenshots here after deployment
 
-## Expanding the ESLint configuration
+Home Page:
+Search + Popular Movies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Movie Details:
+Full movie info with rating, runtime, overview
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Favorites:
+Saved movies with localStorage persistence
+✨ Features
+🔍 Search movies in real-time (TMDb API)
+📈 Popular movies on homepage
+⚡ Debounced search (optimized API calls)
+🎬 Detailed movie page (rating, runtime, overview, genres)
+❤️ Add / remove favorite movies
+💾 Persistent favorites using localStorage
+🧭 React Router navigation
+⏳ Loading skeletons for better UX
+❌ Error handling & empty states
+📱 Fully responsive UI
+🛠️ Tech Stack
+⚛️ React
+🟦 TypeScript
+🎨 Tailwind CSS
+🌐 React Router DOM
+🎬 TMDb API
+💾 LocalStorage
+📂 Project Structure
+src/
+ ├── components/
+ │    ├── MovieCard.tsx
+ │    ├── SearchBar.tsx
+ │    ├── SkeletonCard.tsx
+ │
+ ├── pages/
+ │    ├── Home.tsx
+ │    ├── MovieDetails.tsx
+ │    ├── Favorites.tsx
+ │
+ ├── utils/
+ │    ├── favorites.ts
+ │
+ ├── types/
+ │    ├── Type.ts
+ │
+ ├── App.tsx
+ ├── main.tsx
+🔑 API Setup
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+This project uses the TMDb API.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Get an API key from:
+👉 https://www.themoviedb.org/settings/api
+Create a .env file:
+VITE_TMDB_API_KEY=your_api_key_here
+Run the project:
+npm install
+npm run dev
+🧠 Key Learnings
+Working with REST APIs in React
+Managing async state (loading, error, success)
+Component reusability
+TypeScript with API data
+LocalStorage state persistence
+UI/UX improvements (skeleton loaders, debounce)
+📦 Installation
+git clone https://github.com/your-username/movie-search-app.git
+cd movie-search-app
+npm install
+npm run dev
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+👨‍💻 Author
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Built by Firomsa Mohammedsani
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+⭐ If you like this project
+
+Give it a star ⭐ on GitHub and feel free to fork it!
