@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import type { Movie } from '../types/Type';
+import {  fetchMovieDetails } from '../services/tmdb';
 
 const MoviesDetails = () => {
 
@@ -9,38 +10,16 @@ const MoviesDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+
   useEffect(() => {
-    const fetchMovieDetails = async () => {
+    const loadMovieDetails = async () => {
       if (!id) return;
       setIsLoading(true);
       setError(null);
 
       try {
-        const res = await fetch(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_TMDB_API_KEY}`
-        );
-        if (!res.ok) {
-          throw new Error("Failed to fetch movie details");
-        }
-
-        const data = await res.json();
-
-        const formattedMovie = {
-            id: data.id.toString(),
-            title: data.title,
-            year: data.release_date,
-            poster: data.poster_path
-                ? `https://image.tmdb.org/t/p/w500${data.poster_path}`
-                : "",
-            backdrop: data.backdrop_path
-                ? `https://image.tmdb.org/t/p/original${data.backdrop_path}`
-                : "",
-            rating: data.vote_average,
-            runtime: data.runtime,
-            overview: data.overview,
-            genres: data.genres.map((g: any) => g.name),
-            };
-        setMovie(formattedMovie);
+        const detailResult = await fetchMovieDetails(id);
+        setMovie(detailResult);
       }
          catch (err) {
         setError(err instanceof Error ? err.message : "Unknown error");
@@ -49,7 +28,7 @@ const MoviesDetails = () => {
       }
     };
 
-    fetchMovieDetails();
+    loadMovieDetails();
   }, [id]);
 
   if (isLoading) {

@@ -1,68 +1,106 @@
-🎬 Movie Search App
+# 🎬 Movie Search App
 
-A modern React + TypeScript web application for searching movies, viewing details, and saving favorites using the TMDb API.
+A modern movie discovery application built with **React**, **TypeScript**, **Tailwind CSS**, and the **TMDb API**. Users can browse popular movies, search for titles in real time, view detailed movie information, and save their favorite movies locally.
 
-🚀 Live Demo
+## 🚀 Features
 
-👉(https://movie-search-app-lemon-delta.vercel.app/)
+* 🔥 Browse popular movies from TMDb
+* 🔍 Search movies by title
+* ⏳ Debounced search for better performance
+* 📄 Detailed movie information page
+* ❤️ Add and remove favorite movies
+* 💾 Favorites persisted with Local Storage
+* ⚡ Loading skeletons and error handling
+* 📱 Responsive design with Tailwind CSS
+* 🛣️ Dynamic routing with React Router
+* 📝 Built with TypeScript for type safety
 
-📸 Preview
+## 🛠️ Tech Stack
 
-Home Page:
-Search + Popular Movies
+### Frontend
 
-Movie Details:
-Full movie info with rating, runtime, overview
+* React
+* TypeScript
+* Tailwind CSS
+* React Router
 
-Favorites:
-Saved movies with localStorage persistence
-✨ Features
-🔍 Search movies in real-time (TMDb API)
-📈 Popular movies on homepage
-⚡ Debounced search (optimized API calls)
-🎬 Detailed movie page (rating, runtime, overview, genres)
-❤️ Add / remove favorite movies
-💾 Persistent favorites using localStorage
-🧭 React Router navigation
-⏳ Loading skeletons for better UX
-❌ Error handling & empty states
-📱 Fully responsive UI
-🛠️ Tech Stack
-⚛️ React
-🟦 TypeScript
-🎨 Tailwind CSS
-🌐 React Router DOM
-🎬 TMDb API
-💾 LocalStorage
- 
-🔑 API Setup
+### API
 
-This project uses the TMDb API.
+* TMDb (The Movie Database)
 
-Get an API key from:
-👉 https://www.themoviedb.org/settings/api
-Create a .env file:
-VITE_TMDB_API_KEY=your_api_key_here
-Run the project:
-npm install
-npm run dev
-🧠 Key Learnings
-Working with REST APIs in React
-Managing async state (loading, error, success)
-Component reusability
-TypeScript with API data
-LocalStorage state persistence
-UI/UX improvements (skeleton loaders, debounce)
-📦 Installation
+### State Management
+
+* React Hooks (`useState`, `useEffect`)
+
+### Storage
+
+* Local Storage
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
 git clone https://github.com/firo-moh7/movie-search-app.git
+```
+
+Navigate into the project:
+
+```bash
 cd movie-search-app
+```
+
+Install dependencies:
+
+```bash
 npm install
+```
+
+Create a `.env` file:
+
+```env
+VITE_TMDB_API_KEY=your_tmdb_api_key
+```
+
+Start the development server:
+
+```bash
 npm run dev
+```
 
-👨‍💻 Author
+## 📂 Project Structure
 
-Built by Firomsa Mohammedsani
+```text
+src/
+├── components/
+├── pages/
+├── types/
+├── utils/
+├── App.tsx
+└── main.tsx
+```
 
-⭐ If you like this project
+## 🎯 Learning Outcomes
 
-Give it a star ⭐ on GitHub and feel free to fork it!
+This project helped me practice:
+
+* API integration with fetch
+* TypeScript interfaces and types
+* React Router navigation
+* Component-based architecture
+* Local storage persistence
+* Loading and error states
+* Responsive UI development
+
+## 🌟 Future Improvements
+
+* Pagination
+* Infinite scrolling
+* Dark mode
+* Advanced filtering
+* Service layer for API calls
+* Better TypeScript API models
+
+## 📄 License
+
+This project is for educational and portfolio purposes.

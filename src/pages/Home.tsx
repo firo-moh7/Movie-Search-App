@@ -4,6 +4,7 @@ import SearchBar from "../components/SearchBar";
 import type { Movie } from "../types/Type";
 import SkeletonCard from "../components/SkeletonCard";
 import { Link } from "react-router-dom";
+import { fetchPopularMovies, searchMovies } from "../services/tmdb";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,82 +13,42 @@ function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-    const fetchPopularMovies = async () => {
-        setIsLoading(true);
-        setError(null);
-
-        try {
-          const res = await fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_API_KEY}`
-          );
-
-          if (!res.ok) {
-            throw new Error("Failed to fetch popular movies");
-          }
-
-          const data = await res.json();
-
-          const formattedMovies: Movie[] = data.results.map((movie: any) => ({
-            id: movie.id.toString(),
-            title: movie.title,
-            year: movie.release_date,
-            poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-          }));
-
-          setMovies(formattedMovies);
-        } catch (err) {
-          setError(err instanceof Error ? err.message : "Unknown error");
-        } finally {
-          setIsLoading(false);
-        }
-  };
-
-
-  const searchMovies = async (query: string) => {
-    if (!query.trim()) {
-      fetchPopularMovies();
-      return;
-    }
-      setIsLoading(true);
-      setError(null);
+  const loadPopularMovies = async () => {
+    setIsLoading(true);
+    setError(null);
 
     try {
-       const res = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${
-        import.meta.env.VITE_TMDB_API_KEY
-      }&query=${encodeURIComponent(query)}`
-    );
-    
-    if (!res.ok) {
-      throw new Error("Failed to fetch movies");
+      const popularMovies = await fetchPopularMovies();
+      setMovies(popularMovies);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error");
+    } finally {
+      setIsLoading(false);
     }
+  };
+  
+  const loadSearchMovies = async (query: string) => {
+    setIsLoading(true);
+    setError(null); 
 
-    const data = await res.json();
-    
-    const formattedMovies: Movie[] = data.results.map((movie: any) => ({
+    try {
+      const searchResults = await searchMovies(query);
+      setMovies(searchResults);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  
 
-      id: movie.id.toString(),
-      title: movie.title,
-      year: movie.release_date,
-      poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-
-    }));
-
-    setMovies(formattedMovies);
-    
-  } catch (err) {
-    setError(err instanceof Error ? err.message : "Unknown error");
-  } finally {
-    setIsLoading(false);    
-    };
-  }
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       if (searchTerm.trim()) {
-        searchMovies(searchTerm);
+        loadSearchMovies(searchTerm);
       } 
-    }, 5000);
+    }, 500);
 
     return () => clearTimeout(delayDebounceFn);
   }, [searchTerm]);
@@ -95,7 +56,7 @@ function Home() {
 
   
   useEffect(() => {
-    fetchPopularMovies();
+    loadPopularMovies();
   }, []);
 
   
